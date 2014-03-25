@@ -1,0 +1,19 @@
+This is a port to OS/2 from the WIN32 version using GCC 3.3.5 Beta 2.
+It is statically linked and has no dependencies on any GCC DLLs.
+The Ogg-Vorbis support has NOT been compiled in.
+
+If building from source, then you need to copy to the sources directory:
+1) mad.h and libmad.lib from the libmad package (build libmad.lib yourself)
+2) tcpipv4/libsocket.lib from the GCC lib directory (to retain 16 bit
+   TCP/IP stack compatibility)
+
+This software was ported to OS/2 by Paul Ratcliffe
+utils@orac12.clara.34.co56.uk78 (remove the numbers to email me).
+
+History
+-------
+30 July 2005    Enabled wildcards on the command line.
+
+28 Jan. 2005    Enabled CDDB support.
+
+3 Jan. 2005     Initial port.

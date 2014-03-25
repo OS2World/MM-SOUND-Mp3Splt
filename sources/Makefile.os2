@@ -1,0 +1,2 @@
+all:
+	gcc -Zomf -DNO_OGG -DTCPV40HDRS -o mp3splt.exe -O2 -Wall *.c libmad.lib libsocket.lib -s -static -lc_omf386

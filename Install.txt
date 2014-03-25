@@ -1,0 +1,93 @@
+---------------------------------------------------------------------------------
+		 INSTALLING INFORMATIONS FOR WINDOWS VERSION
+---------------------------------------------------------------------------------
+
+The easiest way to get your mp3splt installed is to copy just the file mp3splt.exe
+(included in package) in Windows main directory (usually C:\WINDOWS).
+
+Or, for more experienced users: you can extract mp3splt.exe in another directory
+and then add that directory to PATH environment variable.
+
+  IMPORTANT NOTE: MP3SPLT IS A TEXTUAL UTILITY. TO RUN USE MS-DOS PROMPT!
+
+  For people who don't know how to use ms-dos prompt:
+  - First copy mp3splt.exe as described before.
+  - Run MS-DOS prompt in Start Menu -> Accessories or just Choose
+    Start -> Run... then type
+    command
+    (or cmd32, depends on which Windows you are using)
+  - You will have a black window writing C:\WINDOWS> or something similar.
+  - Now you have just to move to directory where mp3 are using 'cd' command, type:
+	cd X:\directory1\directory2\mp3\mymp3\
+    followed by ENTER key and where X is the the drive (for example C or D)
+  - Ok, now just type
+    mp3splt
+    you will se an help message on how to use mp3splt.
+
+  NOTES:
+    1) When file or directory contains a space, you should use quotation marks "".
+    for example: mp3splt "My Album.mp3"..... or cd "My Mp3"
+    Or temporarily rename file to something shorter ;)
+    2) On latest version of Windows (XP) you can use auto-complete function,
+    by typing part of the filename and pressing the TAB key, name will be
+    automatically completed.
+
+  From this point you will be able to use mp3splt correctly.
+  Please read man.html for a complete documentation and example of use.
+  _______________________________________________________________________________
+  --> The .BAT Trick (used by Batman ;)
+  -->
+  --> PART 1
+  --> If you don't want to run the MS-DOS prompt, you can use .bat files:
+  --> 1) Create a new Text file (.txt file) in dir where the mp3 is.
+  --> 2) Open with notepad or another text editing tool.
+  --> 3) Write the line corresponding to what you want to run inside this file.
+  -->	 For example:
+  -->	 mp3splt -c file.cddb "My album.mp3" -o @n-@t -d new
+  --> 4) Save the file and change extension from .txt to .bat
+  --> 5) Double click on the .bat file and all is done
+  --> In this way you don't have to use 'cd' to change current directory
+  -->
+  --> PART 2
+  --> If you often run mp3splt with the same command line. For example
+  --> mp3splt -w album.mp3 -d New
+  --> There is a trick that can save lot of time:
+  --> 1) Create a new Text file (.txt file) in dir you usually have mp3s.
+  --> 2) Open with notepad or another text editing tool.
+  --> 3) Write the line inside the file as you were writing it to run mp3splt
+  -->	 but replace the filename with "%1". Example: mp3splt -w %1 -d New
+  --> 4) Now save the file and rename it to a file with .bat extension.
+  -->	 Example: if you saved the file dewrap.txt -> dewrap.bat
+  --> 5) Drag and drop the file to be splitted on the .bat file you just
+  -->	 created and the play is done.
+  --> Now for each file you wish to dewrap, you can just drag and drop the mp3 file
+  --> on the bat. Of course this trick can be applied to any use of mp3splt.
+  --> Be careful on where file have been created, maybe they are in root dir (C:\)
+  _______________________________________________________________________________
+
+  I know, you are thinking all this is too difficult. This is not true, listen me;
+  I can assure that once you get experienced using this program you will be really
+  fast. Is faster to open a window program, selecting all files to open, select
+  output file and then start, or instead to write only: mp3splt -w file.mp3 ?? ;)
+  However don't worry, I will try to write a Graphic Interface as soon as possible.
+
+COMPILING INFORMATIONS
+
+In package you will already find a binary of mp3splt (mp3splt.exe),
+that has been compiled with MingW v. 2.0.0 (http://mingw.sf.net).
+
+From mp3splt 1.4 you need also these libraries:
+
+libogg	    - http://www.xiph.org
+libvorbis   - http://www.xiph.org
+libmad	    - http://www.mars.org/home/rob/proj/mpeg/
+
+To compile using MingW or any gcc compatible application type:
+
+ gcc -o mp3splt.exe -Wall -O2 *.c -lvorbisfile -lvorbis -logg -lm -lwsock32 -lmad
+
+However, you can compile it using M$ Visual C or any other compiler, but I don't
+know if all functions are supported.
+
+Good luck!
+
